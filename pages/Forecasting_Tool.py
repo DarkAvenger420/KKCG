@@ -411,7 +411,8 @@ def main():
     
     with nav_col1:
         if st.button("🏠 Back to Home", use_container_width=True):
-            st.switch_page("Home.py")
+            # Navigate back to main page
+            st.switch_page("Home")
     
     with nav_col2:
         # Centered status indicators with equal spacing
