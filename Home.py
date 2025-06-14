@@ -239,27 +239,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def main():
-    # Initialize session state for navigation
-    if 'current_page' not in st.session_state:
-        st.session_state.current_page = 'Home'
-    
-    # Check for navigation request
-    if 'navigate_to' in st.session_state:
-        if st.session_state.navigate_to == "Forecasting_Tool":
-            try:
-                st.switch_page("pages/Forecasting_Tool.py")
-            except Exception as e:
-                st.error(f"Navigation error: {e}")
-                st.info("Please use the sidebar to navigate to 'Forecasting Tool'")
-        elif st.session_state.navigate_to == "Heatmap_Comparison":
-            try:
-                st.switch_page("pages/Heatmap_Comparison.py")
-            except Exception as e:
-                st.error(f"Navigation error: {e}")
-                st.info("Please use the sidebar to navigate to 'Heatmap Comparison'")
-        # Clear the navigation request
-        if 'navigate_to' in st.session_state:
-            del st.session_state.navigate_to
+    # Simple direct navigation - no session state needed
     
     # Hero Section
     st.markdown("""
@@ -319,8 +299,7 @@ def main():
         """, unsafe_allow_html=True)
         
         if st.button("🔮 Launch Forecasting Tool", key="forecast_btn", use_container_width=True):
-            st.session_state.navigate_to = "Forecasting_Tool"
-            st.rerun()
+            st.switch_page("pages/Forecasting_Tool.py")
     
     with col2:
         st.markdown("""
@@ -342,8 +321,7 @@ def main():
         """, unsafe_allow_html=True)
         
         if st.button("🔥 Launch Heatmap Analytics", key="heatmap_btn", use_container_width=True):
-            st.session_state.navigate_to = "Heatmap_Comparison"
-            st.rerun()
+            st.switch_page("pages/Heatmap_Comparison.py")
     
     # Key Benefits Section (Simplified)
     st.markdown("<h2 style='text-align: center; color: #E8F4FD; margin: 3rem 0 2rem 0; font-family: \"Poppins\", sans-serif;'>🎯 Key Benefits</h2>", unsafe_allow_html=True)
