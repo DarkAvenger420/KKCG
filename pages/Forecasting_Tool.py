@@ -411,8 +411,8 @@ def main():
     
     with nav_col1:
         if st.button("🏠 Back to Home", use_container_width=True):
-            # Navigate back to main page
-            st.switch_page("Home")
+            st.info("🏠 **To return to Home:** Please refresh your browser page or use the back button")
+            st.markdown("**💡 Pro tip:** Bookmark the main URL for quick access to the Home page")
     
     with nav_col2:
         # Centered status indicators with equal spacing
