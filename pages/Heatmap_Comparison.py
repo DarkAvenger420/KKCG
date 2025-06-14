@@ -220,8 +220,7 @@ def main():
     
     with nav_col1:
         if st.button("🏠 Back to Home", use_container_width=True):
-            st.info("🏠 **To return to Home:** Please refresh your browser page or use the back button")
-            st.markdown("**💡 Pro tip:** Bookmark the main URL for quick access to the Home page")
+            st.switch_page("Home.py")
     
     with nav_col2:
         st.markdown("""
@@ -748,4 +747,9 @@ DATA SUMMARY:
                 label="📄 Download Insights Report",
                 data=summary_report,
                 file_name=f"kkcg_insights_report_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
- 
+                mime="text/plain",
+                use_container_width=True
+            )
+
+if __name__ == "__main__":
+    main() 
