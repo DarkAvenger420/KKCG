@@ -71,15 +71,10 @@ def generate_heatmap(df, value_mode="total", top_n_dishes=None, normalize=False,
         colorscale=color_scale.title(),
         hovertemplate=hover_template,
         showscale=True,
-        colorbar=dict(
-            title=f"<b>{title_suffix}</b>",
-            titleside="right",
-            titlefont=dict(size=14, color='white'),
-            tickfont=dict(color='white'),
-            thickness=15,
-            len=0.8
-        ),
-        zmid=None if not normalize else 0.5  # Center normalized data at 50%
+        colorbar={
+            "title": title_suffix,
+            "titleside": "right"
+        }
     ))
     
     # Add text annotations on cells (only for top values to avoid clutter)
@@ -113,14 +108,12 @@ def generate_heatmap(df, value_mode="total", top_n_dishes=None, normalize=False,
         ),
         xaxis=dict(
             title="<b>Dishes</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=10, color='white'),
             tickangle=45,
             side='bottom'
         ),
         yaxis=dict(
             title="<b>Outlets</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=12, color='white')
         ),
         plot_bgcolor='rgba(0,0,0,0)',
@@ -185,13 +178,11 @@ def generate_trend_chart(df, dish_name=None, outlet_name=None):
         ),
         xaxis=dict(
             title="<b>Date</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=10, color='white'),
             gridcolor='rgba(255,255,255,0.1)'
         ),
         yaxis=dict(
             title="<b>Predicted Demand</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=10, color='white'),
             gridcolor='rgba(255,255,255,0.1)'
         ),
@@ -253,13 +244,11 @@ def generate_comparison_bar_chart(df, comparison_type="outlet"):
         ),
         xaxis=dict(
             title=f"<b>{x_title}</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=10, color='white'),
             tickangle=45 if comparison_type == "dish" else 0
         ),
         yaxis=dict(
             title=f"<b>{y_title}</b>",
-            titlefont=dict(size=14, color='white'),
             tickfont=dict(size=10, color='white')
         ),
         plot_bgcolor='rgba(0,0,0,0)',
