@@ -306,8 +306,7 @@ def create_forecast_chart(forecast_data):
         gridwidth=1, 
         gridcolor='rgba(255,255,255,0.1)',
         tickformat='%Y-%m-%d',
-        tickfont=dict(color='#E8F4FD'),
-        titlefont=dict(color='#E8F4FD')
+        tickfont=dict(color='#E8F4FD')
     )
     fig.update_yaxes(
         showgrid=True, 
@@ -316,8 +315,7 @@ def create_forecast_chart(forecast_data):
         zeroline=True,
         zerolinecolor='rgba(255,255,255,0.3)',
         zerolinewidth=1,
-        tickfont=dict(color='#E8F4FD'),
-        titlefont=dict(color='#E8F4FD')
+        tickfont=dict(color='#E8F4FD')
     )
     
     return fig
@@ -376,8 +374,7 @@ def create_explanation_chart(explanations):
     fig.update_xaxes(
         showgrid=False,
         tickangle=45,
-        tickfont=dict(color='#E8F4FD'),
-        titlefont=dict(color='#E8F4FD')
+        tickfont=dict(color='#E8F4FD')
     )
     fig.update_yaxes(
         showgrid=True, 
@@ -386,8 +383,7 @@ def create_explanation_chart(explanations):
         zeroline=True,
         zerolinecolor='rgba(255,255,255,0.5)',
         zerolinewidth=2,
-        tickfont=dict(color='#E8F4FD'),
-        titlefont=dict(color='#E8F4FD')
+        tickfont=dict(color='#E8F4FD')
     )
     
     # Add horizontal line at y=0 with better styling for dark theme
