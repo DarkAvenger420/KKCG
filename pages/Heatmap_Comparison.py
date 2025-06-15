@@ -237,6 +237,11 @@ def main():
     with st.spinner("🔄 Loading demand analytics..."):
         df = load_data()
     
+    # Demo mode indicator
+    demo_col1, demo_col2, demo_col3 = st.columns([1, 2, 1])
+    with demo_col2:
+        st.info("🚀 **Analytics Dashboard Active** - Analyzing 7-day demand forecast data across all outlets")
+    
     # Enhanced Sidebar with collapsible sections
     st.sidebar.header("🎛️ Analytics Controls")
     st.sidebar.markdown("---")
@@ -746,10 +751,4 @@ DATA SUMMARY:
             st.download_button(
                 label="📄 Download Insights Report",
                 data=summary_report,
-                file_name=f"kkcg_insights_report_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
-                mime="text/plain",
-                use_container_width=True
-            )
-
-if __name__ == "__main__":
-    main() 
+   
