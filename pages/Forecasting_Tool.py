@@ -425,11 +425,11 @@ def main():
                     st.session_state.last_backend_check = "unknown"
                 
                 if st.session_state.last_backend_check == "online":
-                    st.markdown('<div style="text-align: center;"><span class="status-online">🟢 Backend Online</span></div>', unsafe_allow_html=True)
+                    st.markdown('<div style="text-align: center;"><span class="status-online">🟢 Live Data</span></div>', unsafe_allow_html=True)
                 elif st.session_state.last_backend_check == "offline":
-                    st.markdown('<div style="text-align: center;"><span class="status-offline">🔴 Backend Offline</span></div>', unsafe_allow_html=True)
+                    st.markdown('<div style="text-align: center;"><span class="status-demo">🔄 Demo Mode</span></div>', unsafe_allow_html=True)
                 else:
-                    st.markdown('<div style="text-align: center;"><span class="status-demo">❓ Status Unknown</span></div>', unsafe_allow_html=True)
+                    st.markdown('<div style="text-align: center;"><span class="status-demo">🚀 Ready</span></div>', unsafe_allow_html=True)
             
             with status_col2:
                 st.markdown('<div style="text-align: center;"><span class="status-demo">📊 Demo Ready</span></div>', unsafe_allow_html=True)
@@ -768,9 +768,26 @@ def main():
                 )
                 
         else:
-            # API failed - use sample data
-            st.warning(f"⚠️ API Error: {error}")
-            st.info("📊 Showing sample forecast data as fallback")
+            # API failed - use sample data with improved messaging
+            st.info("🔄 **Demo Mode Active** - Using sample data for demonstration")
+            with st.expander("ℹ️ About Demo Mode", expanded=False):
+                st.markdown(f"""
+                **Why Demo Mode?**
+                - The AI backend server is currently offline
+                - This is normal for demonstration purposes
+                - Sample data shows full functionality
+                
+                **Demo Features:**
+                - ✅ Interactive forecasting charts
+                - ✅ AI feature explanations (SHAP)
+                - ✅ Business insights & metrics
+                - ✅ Export capabilities
+                
+                **Technical Details:**
+                - Backend Status: `{error}`
+                - Sample Data: 7-day forecast with realistic patterns
+                """)
+                st.markdown("💡 **For Production**: Connect to live restaurant data and AI models")
             # Update backend status in session state
             st.session_state.last_backend_check = "offline"
             
